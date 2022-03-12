@@ -6,10 +6,10 @@ function Gallery() {
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    fetchPhotos();
+    fetchAlbums();
   }, []);
 
-  const fetchPhotos = async () => {
+  const fetchAlbums = async () => {
     const url = 'https://jsonplaceholder.typicode.com/photos?_limit=300';
 
     fetch(url)
@@ -31,11 +31,26 @@ function Gallery() {
   return (
     <div className="Gallery">
       <main>
-        Gallery
-        {!hasError && photos.length && (
-          <div>
-            <Link to="/album/1">Album 1</Link>
-            <Link to="/album/2">Album 2</Link>
+        <h1>Gallery</h1>
+        {!hasError && albums.length && (
+          <div className="Album-tiles">
+            {albums.map(album => {
+              const coverPhoto = album[0];
+              return (
+                <Link
+                  className="Album-tile"
+                  to={`/album/${coverPhoto.albumId}`}
+                  key={coverPhoto.albumId}
+                >
+                  <h2>Album {coverPhoto.albumId}</h2>
+                  <img
+                    className="Album-thumbnail"
+                    src={coverPhoto.thumbnailUrl}
+                    alt={coverPhoto.title}
+                  />
+                </Link>
+              );
+            })}
           </div>
         )}
       </main>
