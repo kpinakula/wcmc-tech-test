@@ -21,8 +21,21 @@ function Album() {
   return (
     <div className="Album">
       <main>
-        <Link to="photo/1">Album 1, Photo 1</Link>
-        <Link to="photo/2">Album 1, Photo 2</Link>
+        <h1>Album {albumId}</h1>
+        {!hasError && photos.length && (
+          <div className="Tiles">
+            {photos.map(photo => (
+              <Link className="Tile" to={`photo/${photo.id}`} key={photo.id}>
+                <h2>{photo.title}</h2>
+                <img
+                  className="Thumbnail"
+                  src={photo.thumbnailUrl}
+                  alt={photo.title}
+                />
+              </Link>
+            ))}
+          </div>
+        )}
       </main>
     </div>
   );
