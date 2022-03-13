@@ -1,0 +1,24 @@
+.Tiles {
+  display: grid;
+}
+
+.Tile {
+  display: grid;
+  grid-template-rows: max-content;
+  align-items: end;
+  justify-items: center;
+  margin-bottom: 48px;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .Tiles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .Tiles {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
