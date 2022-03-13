@@ -8,28 +8,26 @@ function Gallery() {
   const { photos, hasError } = useContext(AppContext);
 
   return (
-    <div className="Gallery">
-      <main>
-        <h1>Gallery</h1>
-        {!hasError && photos.length ? (
-          <div className={styles.Tiles}>
-            {photos.map(album => {
-              const coverPhoto = album[0];
-              return (
-                <Link
-                  className={styles.Tile}
-                  to={`/album/${coverPhoto.albumId}`}
-                  key={coverPhoto.albumId}
-                >
-                  <h2>Album {coverPhoto.albumId}</h2>
-                  <img src={coverPhoto.thumbnailUrl} alt={coverPhoto.title} />
-                </Link>
-              );
-            })}
-          </div>
-        ) : null}
-      </main>
-    </div>
+    <main>
+      <h1>Gallery</h1>
+      {!hasError && photos.length ? (
+        <div className={styles.Tiles}>
+          {photos.map(album => {
+            const coverPhoto = album[0];
+            return (
+              <Link
+                className={styles.Tile}
+                to={`/album/${coverPhoto.albumId}`}
+                key={coverPhoto.albumId}
+              >
+                <h2>Album {coverPhoto.albumId}</h2>
+                <img src={coverPhoto.thumbnailUrl} alt={coverPhoto.title} />
+              </Link>
+            );
+          })}
+        </div>
+      ) : null}
+    </main>
   );
 }
 

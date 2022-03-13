@@ -36,7 +36,7 @@ function App() {
     <AppContext.Provider value={{ photos, hasError }}>
       <Router>
         <div className="App">
-          <header className="App-header">Header</header>
+          <header className="App-header">UNEP-WCMC Tech Test</header>
           <Routes>
             <Route exact path="/" element={<Gallery />} />
             <Route exact path="album/:albumId" element={<Album />} />
