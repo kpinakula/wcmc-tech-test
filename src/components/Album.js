@@ -13,7 +13,7 @@ function Album() {
     <div className={'Album'}>
       <main>
         <h1>Album {albumId}</h1>
-        {!hasError && albumPhotos.length ? (
+        {!hasError && albumPhotos?.length ? (
           <div className={styles.Tiles}>
             {albumPhotos.map(({ id, title, thumbnailUrl }) => (
               <Link className={styles.Tile} to={`photo/${id}`} key={id}>
